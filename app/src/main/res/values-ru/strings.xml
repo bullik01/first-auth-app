@@ -1,0 +1,7 @@
+<resources>
+        <string name="app_name">Первое приложение авторизации</string>
+        <string name="textView">Ты кто?! Залогинься! Спасибо!</string>
+        <string name="yourMail">Почта</string>
+        <string name="yourPass">Пароль</string>
+        <string name="button2">Войти!</string>
+</resources>
