@@ -1,5 +1,6 @@
 package com.bulo4ka.bullik01.firstauthapp;
 
+import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         hello = (TextView) findViewById(R.id.textView);
         login = (Button) findViewById(R.id.button2);
 
-        mail.addTextChangedListener(new TextWatcher() {
+        login.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 Matcher matcher = pattern.matcher(s);
                 if (matcher.find()) {
                     hello.setVisibility(View.VISIBLE);
-                    hello.setText("Hello " + matcher.group(1));
+                    hello.setText(getString(R.string.whatuneed) + matcher.group(1));
                 } else {
                     hello.setVisibility(View.INVISIBLE);
                 }
@@ -57,14 +58,16 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if(!pattern.matcher(mail.getText().toString()).find()){
-                    Toast.makeText(MainActivity.this, "Non valid mail", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, R.string.badmail, Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(password.getText().length()<6){
-                    Toast.makeText(MainActivity.this, "Ur pass so short... Needed - >6 symbols", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, R.string.badpass, Toast.LENGTH_SHORT).show();
                     return;
                 }
+
                 doLogin();
             }
         });

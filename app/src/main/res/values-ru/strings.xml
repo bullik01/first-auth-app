@@ -4,4 +4,8 @@
         <string name="yourMail">Почта</string>
         <string name="yourPass">Пароль</string>
         <string name="button2">Войти!</string>
+        <string name="whatuneed">Привет&#160;</string>
+        <string name="badmail">Неверная почта. Правильный формат: xxx@xx.xx</string>
+        <string name="badpass">Короткий пароль. Нужно не менее 6 символов</string>
+        <string name="nope">Поля заполнены не полностью!</string>
 </resources>

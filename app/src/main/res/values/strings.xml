@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">FirstAuthApp</string>
+    <string name="textView">Who are you? Login plz! Thx!</string>
+    <string name="yourMail">Mail</string>
+    <string name="yourPass">Password</string>
+    <string name="button2">Login!</string>
+    <string name="whatuneed">Hello&#160;</string>
+    <string name="badmail">Incorrect mail. True format: xxx@xx.xx</string>
+    <string name="badpass">Short password. Needed 6 symbols or bigger</string>
+    <string name="nope">Fields not full-filled</string>
 </resources>
