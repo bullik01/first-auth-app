@@ -1,37 +1,42 @@
 package com.bulo4ka.bullik01.firstauthapp;
 
-import android.support.annotation.IdRes;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
-import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity {
     private final static Pattern pattern = Pattern.compile("([\\s\\S]+)@[\\s\\S]+\\.[\\s\\S]{2,}");
 
-    EditText password, mail;
+    @BindView(R.id.textView)
     TextView hello;
+    @BindView(R.id.yourMail)
+    AppCompatEditText mail;
+    @BindView(R.id.yourPass)
+    AppCompatEditText password;
+    @BindView(R.id.button2)
     Button login;
+    @BindView(R.id.activity_main)
+    LinearLayout activityMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        password = (EditText) findViewById(R.id.yourPass);
-        mail = (EditText) findViewById(R.id.yourMail);
-        hello = (TextView) findViewById(R.id.textView);
-        login = (Button) findViewById(R.id.button2);
+        ButterKnife.bind(this);
 
         login.addTextChangedListener(new TextWatcher() {
             @Override
@@ -58,13 +63,16 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if(!pattern.matcher(mail.getText().toString()).find()){
-                    Toast.makeText(MainActivity.this, R.string.badmail, Toast.LENGTH_SHORT).show();
+                if (mail.getText().length() < 1) {
+                    mail.setError(getString(R.string.nomail));
                     return;
                 }
-                if(password.getText().length()<6){
-                    Toast.makeText(MainActivity.this, R.string.badpass, Toast.LENGTH_SHORT).show();
+                if (!pattern.matcher(mail.getText().toString()).find()) {
+                    mail.setError(getString(R.string.badmail));
+                    return;
+                }
+                if (password.getText().length() < 6) {
+                    password.setError(getString(R.string.badpass));
                     return;
                 }
 
@@ -72,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    private void doLogin(){
+
+    private void doLogin() {
 
     }
 }

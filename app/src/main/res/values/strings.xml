@@ -8,4 +8,6 @@
     <string name="badmail">Incorrect mail. True format: xxx@xx.xx</string>
     <string name="badpass">Short password. Needed 6 symbols or bigger</string>
     <string name="nope">Fields not full-filled</string>
+    <string name="nomail">Where email?</string>
+    <string name="nopass">Where password?</string>
 </resources>

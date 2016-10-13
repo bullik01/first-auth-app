@@ -43,7 +43,7 @@
 
         <android.support.v7.widget.AppCompatEditText
             android:id="@+id/yourPass"
-            android:layout_width="match_parent"
+            android:layout_width="321dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/yourPass"
@@ -51,6 +51,8 @@
             android:maxLines="1"
             android:scrollHorizontally="true" />
     </android.support.design.widget.TextInputLayout>
+
+
 
 
     <Button
