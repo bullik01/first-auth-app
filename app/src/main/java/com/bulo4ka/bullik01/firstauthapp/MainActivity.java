@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,7 +20,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
-    private final static Pattern pattern = Pattern.compile("([\\s\\S]+)@[\\s\\S]+\\.[\\s\\S]{2,}");
+    private final static Pattern pattern = Patterns.EMAIL_ADDRESS;
 
     @BindView(R.id.textView)
     TextView hello;
