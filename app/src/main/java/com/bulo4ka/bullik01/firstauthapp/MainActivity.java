@@ -18,6 +18,7 @@ import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
     private final static Pattern pattern = Patterns.EMAIL_ADDRESS;
@@ -39,44 +40,28 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        login.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Matcher matcher = pattern.matcher(s);
-                if (matcher.find()) {
-                    hello.setVisibility(View.VISIBLE);
-                    hello.setText(getString(R.string.whatuneed) + matcher.group(1));
-                } else {
-                    hello.setVisibility(View.INVISIBLE);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Checking 4 length of text
                 if (mail.getText().length() < 1) {
                     mail.setError(getString(R.string.nomail));
                     return;
                 }
+                // Checking 4 mail pattern
                 if (!pattern.matcher(mail.getText().toString()).find()) {
                     mail.setError(getString(R.string.badmail));
                     return;
                 }
+                // Checking 4 password length.
                 if (password.getText().length() < 6) {
                     password.setError(getString(R.string.badpass));
                     return;
                 }
-
+                // Getting mail & saying hi (stupid way, but it work perfect)
+                if (mail.getText().length() > 1) {
+                    hello.setText(getString(R.string.whatuneed) + mail.getText());
+                }
                 doLogin();
             }
         });

@@ -39,11 +39,11 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp">
+        android:layout_marginTop="24dp">
 
         <android.support.v7.widget.AppCompatEditText
             android:id="@+id/yourPass"
-            android:layout_width="321dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/yourPass"
@@ -53,11 +53,9 @@
     </android.support.design.widget.TextInputLayout>
 
 
-
-
     <Button
         android:id="@+id/button2"
-        android:layout_width="162dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_gravity="end"
