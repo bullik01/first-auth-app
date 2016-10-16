@@ -23,16 +23,11 @@ import butterknife.OnClick;
 public class MainActivity extends AppCompatActivity {
     private final static Pattern pattern = Patterns.EMAIL_ADDRESS;
 
-    @BindView(R.id.textView)
-    TextView hello;
-    @BindView(R.id.yourMail)
-    AppCompatEditText mail;
-    @BindView(R.id.yourPass)
-    AppCompatEditText password;
-    @BindView(R.id.button2)
-    Button login;
-    @BindView(R.id.activity_main)
-    LinearLayout activityMain;
+    @BindView(R.id.textView) TextView hello;
+    @BindView(R.id.yourMail) AppCompatEditText mail;
+    @BindView(R.id.yourPass) AppCompatEditText password;
+    @BindView(R.id.button2) Button login;
+    @BindView(R.id.activity_main) LinearLayout activityMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,32 +35,32 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Checking 4 length of text
-                if (mail.getText().length() < 1) {
-                    mail.setError(getString(R.string.nomail));
-                    return;
-                }
-                // Checking 4 mail pattern
-                if (!pattern.matcher(mail.getText().toString()).find()) {
-                    mail.setError(getString(R.string.badmail));
-                    return;
-                }
-                // Checking 4 password length.
-                if (password.getText().length() < 6) {
-                    password.setError(getString(R.string.badpass));
-                    return;
-                }
-                // Getting mail & saying hi (stupid way, but it work perfect)
-                if (mail.getText().length() > 1) {
-                    hello.setText(getString(R.string.whatuneed) + mail.getText());
-                }
+    }
+
+        @OnClick(R.id.button2)
+        public void onMyButtonClick(View view)  {
+                    // Checking 4 length of text
+                    if (mail.getText().length() < 1) {
+                        mail.setError(getString(R.string.nomail));
+                        return;
+                    }
+                    // Checking 4 mail pattern
+                    if (!pattern.matcher(mail.getText().toString()).find()) {
+                        mail.setError(getString(R.string.badmail));
+                        return;
+                    }
+                    // Checking 4 password length.
+                    if (password.getText().length() < 6) {
+                        password.setError(getString(R.string.badpass));
+                        return;
+                    }
+                    // Getting mail & saying hi (stupid way, but it work perfect)
+                    if (mail.getText().length() > 1) {
+                        hello.setText(getString(R.string.whatuneed) + mail.getText());
+                    }
+
                 doLogin();
             }
-        });
-    }
 
     private void doLogin() {
 
