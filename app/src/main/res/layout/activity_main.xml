@@ -9,20 +9,34 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.bulo4ka.bullik01.firstauthapp.MainActivity">
+    tools:context="com.bulo4ka.bullik01.firstauthapp.MainActivity"
+    android:background="@drawable/black_background"
+    android:weightSum="1"
+    android:layout_gravity="center_vertical">
+
+    <ImageView
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_marginLeft="107dp"
+        android:background="@drawable/login_picture"
+        />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/textView"
-        android:layout_gravity="center_horizontal"
-        android:visibility="visible" />
+        android:textColor="@color/colorAccent"
+        android:layout_marginTop="80dp"
+        android:visibility="visible"
+        android:layout_gravity="center_horizontal"/>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp">
+        android:layout_marginTop="20dp"
+        android:textColorHint="@color/colorAccent"
+        android:layout_gravity="center_horizontal">
 
         <android.support.v7.widget.AppCompatEditText
             android:id="@+id/yourMail"
@@ -33,13 +47,16 @@
             android:inputType="textEmailAddress"
             android:maxLines="1"
             android:scrollHorizontally="true"
-            android:selectAllOnFocus="false" />
+            android:selectAllOnFocus="false"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/colorAccent"/>
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp">
+        android:textColorHint="@color/colorAccent"
+        android:layout_gravity="center_horizontal">
 
         <android.support.v7.widget.AppCompatEditText
             android:id="@+id/yourPass"
@@ -49,7 +66,8 @@
             android:hint="@string/yourPass"
             android:inputType="textPassword"
             android:maxLines="1"
-            android:scrollHorizontally="true" />
+            android:scrollHorizontally="true"
+            android:textColor="@color/colorAccent"/>
     </android.support.design.widget.TextInputLayout>
 
 
@@ -57,8 +75,9 @@
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_gravity="end"
+        android:layout_gravity="center_horizontal"
         android:text="@string/button2"
-        android:onClick="onMyButtonClick" />
+        android:backgroundTint="@color/colorAccent"
+        android:onClick="onMyButtonClick"
+        android:textColor="@color/black"/>
 </LinearLayout>
