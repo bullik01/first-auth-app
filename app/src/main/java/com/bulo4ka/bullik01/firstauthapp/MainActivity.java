@@ -1,5 +1,6 @@
 package com.bulo4ka.bullik01.firstauthapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatEditText;
@@ -58,7 +59,12 @@ public class MainActivity extends AppCompatActivity {
                     if (mail.getText().length() > 1) {
                         hello.setText(getString(R.string.whatuneed) + mail.getText());
                     }
-
+        public void onMyButtonClick(View view) {
+            // Starting new activity on click
+            Intent intent = new Intent(this, SecondActivity.class)
+            startActivity(intent);
+                }
+        }
                 doLogin();
             }
 
