@@ -11,28 +11,41 @@ import android.widget.TextView;
 
 
 
-public class CustomListAdapter extends ArrayAdapter String {
-        String[] color_names;
-        Integer[] image_id;
-        Context context;
+public class CustomListAdapter extends ArrayAdapter {
+    String[] color_names;
+    Integer[] image_id;
 
-    public CustomListAdapter(Activity context,Integer[] image_id, String[] text){
-        super(context, R.layout.list_row, text);
+
+    public CustomListAdapter(Activity, Integer[] image_id, String[] text) {
+        super(R.layout.list_row, text);
         this.color_names = text;
         this.image_id = image_id;
-        this.context = context;
-        }
+    }
+
+    static class ViewHolder {
+        public ImageView imageView;
+        public TextView textView;
+    }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflater = (LayoutInflater) context
-        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View single_row = inflater.inflate(R.layout.list_row, null,
-        true);
-        TextView textView = (TextView) single_row.findViewById(R.id.textView);
-        ImageView imageView = (ImageView) single_row.findViewById(R.id.imageView);
-        textView.setText(color_names[position]);
-        imageView.setImageResource(image_id[position]);
-        return single_row;
+
+        ViewHolder holder;
+        View rowView = convertView;
+        if (rowView == null) {
+            LayoutInflater inflater = LayoutInflater(context)
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            return inflater
+                    .inflate(android.R.layout.activity_list_item, parent, false);
+            rowView = inflater.inflate(R.layout.list_row, null, true);
+            holder = new ViewHolder();
+            holder.textView = (TextView) rowView.findViewById(R.id.textView);
+            holder.imageView = (ImageView) rowView.findViewById(R.id.imageView);
+            rowView.setTag(holder);
+        } else {
+            holder = (ViewHolder) rowView.getTag();
         }
-        }
+        return rowView;
+
+    }
+}

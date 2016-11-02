@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.support.design.widget.Snackbar;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -39,6 +40,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
         @OnClick(R.id.button2)
+        public void onMyButtonClick(View view) {
+            Snackbar snackbar = Snackbar
+                    .make(LinearLayout, "Welcome to AndroidHive", Snackbar.LENGTH_LONG);
+
+            snackbar.show();
+        }
+        @OnClick(R.id.button2)
         public void onMyButtonClick(View view)  {
                     // Checking 4 length of text
                     if (mail.getText().length() < 1) {
@@ -59,15 +67,14 @@ public class MainActivity extends AppCompatActivity {
                     if (mail.getText().length() > 1) {
                         hello.setText(getString(R.string.whatuneed) + mail.getText());
                     }
-        public void onMyButtonClick(View view) {
-            // Starting new activity on click
-            Intent intent = new Intent(this, SecondActivity.class)
-            startActivity(intent);
-                }
-        }
-                doLogin();
-            }
+                    // Starting new activity on click
+                    Intent intent = new Intent(this, SecondActivity.class); {
+                    startActivity(intent);
+                    }
 
+                    doLogin(); {
+                    }
+}
     private void doLogin() {
 
     }
